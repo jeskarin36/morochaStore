@@ -13,11 +13,11 @@ const app= express();
 
 const rawJson=express.raw({type:"aplication/json",limit:"1mb"});
 
-app.post("/webhooks/clerk",(req,res)=>{
+app.post("/webhooks/clerk",rawJson,(req,res)=>{
   void  clerkWebhookHandler(req,res);
 })
 
-app.post("/webhooks/polar",(req,res)=>{
+app.post("/webhooks/polar",rawJson,(req,res)=>{
   void  clerkWebhookHandler(req,res);
 })
 
