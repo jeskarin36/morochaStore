@@ -31,9 +31,9 @@ export async function clerkWebhookHandler(req: Request, res: Response) {
     if (evt.type === "user.created" || evt.type === "user.updated") {
       const u = evt.data;
 
-      const email =
-        u.email_addresses?.find((e) => e.id === u.primary_email_address_id)?.email_address ??
-        u.email_addresses?.[0]?.email_address;
+    const email =
+  u.email_addresses?.find((e) => e.id === u.primary_email_address_id)?.email_address ??
+  u.email_addresses?.[0]?.email_address ?? "";
 
       const displayName =
         [u.first_name, u.last_name].filter(Boolean).join(" ") || u.username || null;
