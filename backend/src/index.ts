@@ -11,27 +11,20 @@ import { getEnv } from "./lib/.env.js";
 const env= getEnv();
 const app= express();
 
-const rawJson=express.raw({type:"aplication/json",limit:"1mb"});
+const rawJson=express.raw({type:"application/json",limit:"1mb"});
 
 app.post("/webhooks/clerk",rawJson,(req,res)=>{
   void  clerkWebhookHandler(req,res);
 })
 
+/*
 app.post("/webhooks/polar",rawJson,(req,res)=>{
   void  clerkWebhookHandler(req,res);
 })
 
 app.post("/api/users",(req,res)=>{
   void  clerkWebhookHandler(req,res);
-})
-
-app.post("/webhooks/clerk",(req,res)=>{
-  void  clerkWebhookHandler(req,res);
-})
-
-app.post("/webhooks/clerk",(req,res)=>{
-  void  clerkWebhookHandler(req,res);
-})
+})*/
 
 
 
