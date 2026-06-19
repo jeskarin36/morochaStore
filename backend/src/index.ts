@@ -7,7 +7,7 @@ import path from "node:path";
 
 import {clerkMiddleware} from "@clerk/express";
 import { clerkWebhookHandler } from "./webhooks/clerk.js";
-import { getEnv } from "./lib/.env.js";
+import { getEnv } from "./lib/env.js";
 const env= getEnv();
 const app= express();
 

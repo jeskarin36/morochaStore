@@ -1,7 +1,5 @@
-import "dotenv/config";
 import { z } from "zod";
 
-// .coerce.number() means it will convert the string to a number if it's a string
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
@@ -18,7 +16,7 @@ const envSchema = z.object({
   POLAR_WEBHOOK_SECRET: z.string().optional(),
   POLAR_API_BASE: z.string().url().default("https://api.polar.sh"),
 
-  POLAR_CHECKOUT_PRODUCT_ID: z.string(),
+  POLAR_CHECKOUT_PRODUCT_ID: z.string().uuid(),
 
   STREAM_API_KEY: z.string().min(1),
   STREAM_API_SECRET: z.string().min(1),
