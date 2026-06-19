@@ -11,20 +11,15 @@ import { getEnv } from "./lib/.env.js";
 const env= getEnv();
 const app= express();
 
-const rawJson=express.raw({type:"application/json",limit:"1mb"});
+
+const rawJson = express.raw({ type: "application/json", limit: "1mb" });
+
 
 app.post("/webhooks/clerk",rawJson,(req,res)=>{
   void  clerkWebhookHandler(req,res);
 })
 
-/*
-app.post("/webhooks/polar",rawJson,(req,res)=>{
-  void  clerkWebhookHandler(req,res);
-})
 
-app.post("/api/users",(req,res)=>{
-  void  clerkWebhookHandler(req,res);
-})*/
 
 
 
@@ -36,7 +31,7 @@ const publicDir= path.join(process.cwd(),"public");
 
 if(fs.existsSync(publicDir)){
   app.use(express.static(publicDir));
-  app.get("/{*any} ",(req,res,next)=>{
+  app.get("/{*any}",(req,res,next)=>{
     if(req.method !== "GET" && req.method !== "HEAD"){
       next();
       return;
