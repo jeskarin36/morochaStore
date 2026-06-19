@@ -10,6 +10,7 @@ import { clerkWebhookHandler } from "./webhooks/clerk.js";
 import { getEnv } from "./lib/env.js";
 const env= getEnv();
 const app= express();
+app.use(cors());
 
 const rawJson=express.raw({type:"application/json",limit:"1mb"});
 
@@ -20,7 +21,7 @@ app.post("/webhooks/clerk",rawJson,(req,res)=>{
 
 
 app.use(express.json());
-app.use(cors());
+
 app.use(clerkMiddleware())
 
 const publicDir= path.join(process.cwd(),"public");
@@ -32,7 +33,7 @@ if(fs.existsSync(publicDir)){
       next();
       return;
     }
-    if(req.path.startsWith("/api")|| req.path.startsWith("/webhook")){
+    if(req.path.startsWith("/api")|| req.path.startsWith("/webhooks")){
       next();
       return;
     }
