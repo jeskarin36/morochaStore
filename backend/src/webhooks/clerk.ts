@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { getEnv } from "../lib/env.js";
+import { getEnv } from "../lib/.env.js";
 import { users } from "../db/schema.js";
 import { db } from "../db/index.js";
 import { verifyWebhook } from "@clerk/backend/webhooks";
