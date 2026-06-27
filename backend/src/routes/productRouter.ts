@@ -5,7 +5,7 @@ import { getCategories, getProductBySlug, listProducts } from "../controllers/pr
 const router = Router();
 
 router.get("/",listProducts);
-router.get("/",getCategories);
-router.get("/",getProductBySlug);
+router.get("/categories",getCategories);
+router.get("/:slug",getProductBySlug);
 
 export default router;

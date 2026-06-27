@@ -22,7 +22,7 @@ export default function Navbar() {
   })
 
    const role= meData?.user?.role;
-   const cartCount = 5;
+   const cartCount = useCart((s) => s.items.reduce((n, line) => n + line.quantity, 0));
 
   return (
     <header className='sticky top-0 z-50 border-b border-base-300 bg-base-100/95 shadow-sm backdrop-blur-md'>
@@ -44,7 +44,7 @@ export default function Navbar() {
                 </Link>
 
                 <Show when={"signed-in"}>
-                     <Link to="/" className="btn btn-ghost gap-2 font-medium">
+                     <Link to="/orders" className="btn btn-ghost gap-2 font-medium">
                      <PackageIcon className="size-6 opacity-90" aria-hidden />
                   <span className='hidden sm:inline'>Order</span>
                 </Link>
