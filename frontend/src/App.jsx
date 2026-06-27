@@ -2,7 +2,7 @@ import { Show, SignInButton, SignUpButton, useAuth, UserButton } from '@clerk/re
 import PageLoader from "./components/PageLoader.jsx"
 import Layout from './components/Layout.jsx';
 
-import { Routes,Route  } from 'react-router';
+import { Routes,Route, Navigate  } from 'react-router';
 import HomePage from './pages/HomePage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
